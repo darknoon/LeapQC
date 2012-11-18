@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'LeapQC' target in the 'LeapQC' project
+//
+
+#ifdef __OBJC__
+#endif

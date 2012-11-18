@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		491273B31658A27C007F23EC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491273B21658A27C007F23EC /* Cocoa.framework */; };
+		491273B51658A27C007F23EC /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491273B41658A27C007F23EC /* Quartz.framework */; };
+		491273C11658A27C007F23EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 491273BF1658A27C007F23EC /* InfoPlist.strings */; };
+		491273C41658A27C007F23EC /* LeapQCPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 491273C31658A27C007F23EC /* LeapQCPlugIn.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		491273AF1658A27C007F23EC /* LeapQC.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeapQC.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		491273B21658A27C007F23EC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		491273B41658A27C007F23EC /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		491273B71658A27C007F23EC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		491273B81658A27C007F23EC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		491273B91658A27C007F23EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		491273BE1658A27C007F23EC /* LeapQC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapQC-Info.plist"; sourceTree = "<group>"; };
+		491273C01658A27C007F23EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		491273C21658A27C007F23EC /* LeapQCPlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeapQCPlugIn.h; sourceTree = "<group>"; };
+		491273C31658A27C007F23EC /* LeapQCPlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeapQCPlugIn.m; sourceTree = "<group>"; };
+		491273C51658A27C007F23EC /* LeapQC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeapQC-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		491273AB1658A27C007F23EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				491273B31658A27C007F23EC /* Cocoa.framework in Frameworks */,
+				491273B51658A27C007F23EC /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		491273A31658A27C007F23EC = {
+			isa = PBXGroup;
+			children = (
+				491273BC1658A27C007F23EC /* LeapQC */,
+				491273B11658A27C007F23EC /* Frameworks */,
+				491273B01658A27C007F23EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		491273B01658A27C007F23EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				491273AF1658A27C007F23EC /* LeapQC.plugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		491273B11658A27C007F23EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				491273B21658A27C007F23EC /* Cocoa.framework */,
+				491273B41658A27C007F23EC /* Quartz.framework */,
+				491273B61658A27C007F23EC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		491273B61658A27C007F23EC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				491273B71658A27C007F23EC /* AppKit.framework */,
+				491273B81658A27C007F23EC /* CoreData.framework */,
+				491273B91658A27C007F23EC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		491273BC1658A27C007F23EC /* LeapQC */ = {
+			isa = PBXGroup;
+			children = (
+				491273C21658A27C007F23EC /* LeapQCPlugIn.h */,
+				491273C31658A27C007F23EC /* LeapQCPlugIn.m */,
+				491273BD1658A27C007F23EC /* Supporting Files */,
+			);
+			path = LeapQC;
+			sourceTree = "<group>";
+		};
+		491273BD1658A27C007F23EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				491273BE1658A27C007F23EC /* LeapQC-Info.plist */,
+				491273BF1658A27C007F23EC /* InfoPlist.strings */,
+				491273C51658A27C007F23EC /* LeapQC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		491273AE1658A27C007F23EC /* LeapQC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 491273C81658A27C007F23EC /* Build configuration list for PBXNativeTarget "LeapQC" */;
+			buildPhases = (
+				491273AA1658A27C007F23EC /* Sources */,
+				491273AB1658A27C007F23EC /* Frameworks */,
+				491273AC1658A27C007F23EC /* Resources */,
+				491273AD1658A27C007F23EC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LeapQC;
+			productName = LeapQC;
+			productReference = 491273AF1658A27C007F23EC /* LeapQC.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		491273A51658A27C007F23EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Darknoon;
+			};
+			buildConfigurationList = 491273A81658A27C007F23EC /* Build configuration list for PBXProject "LeapQC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 491273A31658A27C007F23EC;
+			productRefGroup = 491273B01658A27C007F23EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				491273AE1658A27C007F23EC /* LeapQC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		491273AC1658A27C007F23EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				491273C11658A27C007F23EC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		491273AD1658A27C007F23EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\nmkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/LeapQC.plugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/LeapQC.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		491273AA1658A27C007F23EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				491273C41658A27C007F23EC /* LeapQCPlugIn.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		491273BF1658A27C007F23EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				491273C01658A27C007F23EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		491273C61658A27C007F23EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		491273C71658A27C007F23EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		491273C91658A27C007F23EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LeapQC/LeapQC-Prefix.pch";
+				INFOPLIST_FILE = "LeapQC/LeapQC-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Debug;
+		};
+		491273CA1658A27C007F23EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LeapQC/LeapQC-Prefix.pch";
+				INFOPLIST_FILE = "LeapQC/LeapQC-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		491273A81658A27C007F23EC /* Build configuration list for PBXProject "LeapQC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				491273C61658A27C007F23EC /* Debug */,
+				491273C71658A27C007F23EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		491273C81658A27C007F23EC /* Build configuration list for PBXNativeTarget "LeapQC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				491273C91658A27C007F23EC /* Debug */,
+				491273CA1658A27C007F23EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 491273A51658A27C007F23EC /* Project object */;
+}
