@@ -11,13 +11,17 @@
 
 #import "LeapQCPlugIn.h"
 
+#import "Leap.h"
+
 #define	kQCPlugIn_Name				@"LeapQC"
 #define	kQCPlugIn_Description		@"LeapQC description"
 
-@implementation LeapQCPlugIn
+@implementation LeapQCPlugIn {
+	Leap::Controller *controller;
+}
 
 // Here you need to declare the input / output properties as dynamic as Quartz Composer will handle their implementation
-//@dynamic inputFoo, outputBar;
+@dynamic outputHands, outputFingers;
 
 + (NSDictionary *)attributes
 {
@@ -33,24 +37,12 @@
 
 + (QCPlugInExecutionMode)executionMode
 {
-	// Return the execution mode of the plug-in: kQCPlugInExecutionModeProvider, kQCPlugInExecutionModeProcessor, or kQCPlugInExecutionModeConsumer.
-	return kQCPlugInExecutionModeProcessor;
+	return kQCPlugInExecutionModeProvider;
 }
 
 + (QCPlugInTimeMode)timeMode
 {
-	// Return the time dependency mode of the plug-in: kQCPlugInTimeModeNone, kQCPlugInTimeModeIdle or kQCPlugInTimeModeTimeBase.
-	return kQCPlugInTimeModeNone;
-}
-
-- (id)init
-{
-	self = [super init];
-	if (self) {
-		// Allocate any permanent resource required by the plug-in.
-	}
-	
-	return self;
+	return kQCPlugInTimeModeIdle;
 }
 
 
@@ -60,9 +52,7 @@
 
 - (BOOL)startExecution:(id <QCPlugInContext>)context
 {
-	// Called by Quartz Composer when rendering of the composition starts: perform any required setup for the plug-in.
-	// Return NO in case of fatal failure (this will prevent rendering of the composition to start).
-	
+	controller = new Leap::Controller();
 	return YES;
 }
 
@@ -71,16 +61,36 @@
 	// Called by Quartz Composer when the plug-in instance starts being used by Quartz Composer.
 }
 
+- (NSDictionary *)wrapVector:(const Leap::Vector)v {
+	return @{@"x": @(v.x), @"y" : @(v.y), @"z" : @(v.z)};
+}
+
 - (BOOL)execute:(id <QCPlugInContext>)context atTime:(NSTimeInterval)time withArguments:(NSDictionary *)arguments
 {
-	/*
-	Called by Quartz Composer whenever the plug-in instance needs to execute.
-	Only read from the plug-in inputs and produce a result (by writing to the plug-in outputs or rendering to the destination OpenGL context) within that method and nowhere else.
-	Return NO in case of failure during the execution (this will prevent rendering of the current frame to complete).
+	NSMutableArray *fingers = [[NSMutableArray alloc] init];
+	NSMutableArray *hands = [[NSMutableArray alloc] init];
 	
-	The OpenGL context for rendering can be accessed and defined for CGL macros using:
-	CGLContextObj cgl_ctx = [context CGLContextObj];
-	*/
+	Leap::Frame frame = controller->frame();
+	
+	for (Leap::Hand hand : frame.hands() ) {
+		const Leap::Ray *r = hand.palm();
+		if (r) {
+			[hands addObject:@{
+			 @"position" : [self wrapVector:r->position],
+			 @"direction" : [self wrapVector:r->direction],
+			 }];
+		}
+		for (Leap::Finger finger : hand.fingers()) {
+			const Leap::Ray tip = finger.tip();
+			[fingers addObject:@{
+			 @"position" : [self wrapVector:tip.position],
+			 @"direction" : [self wrapVector:tip.direction],
+			 }];
+		}
+	}
+	
+	self.outputFingers = fingers;
+	self.outputHands = hands;
 	
 	return YES;
 }
@@ -92,7 +102,8 @@
 
 - (void)stopExecution:(id <QCPlugInContext>)context
 {
-	// Called by Quartz Composer when rendering of the composition stops: perform any required cleanup for the plug-in.
+	delete controller;
+	controller = NULL;
 }
 
 @end

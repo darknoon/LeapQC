@@ -10,8 +10,23 @@
 		491273B31658A27C007F23EC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491273B21658A27C007F23EC /* Cocoa.framework */; };
 		491273B51658A27C007F23EC /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491273B41658A27C007F23EC /* Quartz.framework */; };
 		491273C11658A27C007F23EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 491273BF1658A27C007F23EC /* InfoPlist.strings */; };
-		491273C41658A27C007F23EC /* LeapQCPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 491273C31658A27C007F23EC /* LeapQCPlugIn.m */; };
+		491273C41658A27C007F23EC /* LeapQCPlugIn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 491273C31658A27C007F23EC /* LeapQCPlugIn.mm */; };
+		491273CC1658A35A007F23EC /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491273CB1658A35A007F23EC /* libLeap.dylib */; };
+		491273CF1658A7EC007F23EC /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 491273CB1658A35A007F23EC /* libLeap.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		491273CE1658A7E0007F23EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				491273CF1658A7EC007F23EC /* libLeap.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		491273AF1658A27C007F23EC /* LeapQC.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeapQC.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,8 +38,10 @@
 		491273BE1658A27C007F23EC /* LeapQC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeapQC-Info.plist"; sourceTree = "<group>"; };
 		491273C01658A27C007F23EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		491273C21658A27C007F23EC /* LeapQCPlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeapQCPlugIn.h; sourceTree = "<group>"; };
-		491273C31658A27C007F23EC /* LeapQCPlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeapQCPlugIn.m; sourceTree = "<group>"; };
+		491273C31658A27C007F23EC /* LeapQCPlugIn.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LeapQCPlugIn.mm; sourceTree = "<group>"; };
 		491273C51658A27C007F23EC /* LeapQC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeapQC-Prefix.pch"; sourceTree = "<group>"; };
+		491273CB1658A35A007F23EC /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libLeap.dylib; path = ../../Leap_SDK/lib/libLeap.dylib; sourceTree = "<group>"; };
+		491273CD1658A362007F23EC /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leap.h; path = ../../Leap_SDK/include/Leap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +51,7 @@
 			files = (
 				491273B31658A27C007F23EC /* Cocoa.framework in Frameworks */,
 				491273B51658A27C007F23EC /* Quartz.framework in Frameworks */,
+				491273CC1658A35A007F23EC /* libLeap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				491273C21658A27C007F23EC /* LeapQCPlugIn.h */,
-				491273C31658A27C007F23EC /* LeapQCPlugIn.m */,
+				491273C31658A27C007F23EC /* LeapQCPlugIn.mm */,
+				491273CD1658A362007F23EC /* Leap.h */,
+				491273CB1658A35A007F23EC /* libLeap.dylib */,
 				491273BD1658A27C007F23EC /* Supporting Files */,
 			);
 			path = LeapQC;
@@ -106,6 +126,7 @@
 			buildPhases = (
 				491273AA1658A27C007F23EC /* Sources */,
 				491273AB1658A27C007F23EC /* Frameworks */,
+				491273CE1658A7E0007F23EC /* CopyFiles */,
 				491273AC1658A27C007F23EC /* Resources */,
 				491273AD1658A27C007F23EC /* ShellScript */,
 			);
@@ -176,7 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491273C41658A27C007F23EC /* LeapQCPlugIn.m in Sources */,
+				491273C41658A27C007F23EC /* LeapQCPlugIn.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +275,10 @@
 				GCC_PREFIX_HEADER = "LeapQC/LeapQC-Prefix.pch";
 				INFOPLIST_FILE = "LeapQC/LeapQC-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Leap_SDK/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = plugin;
 			};
@@ -268,6 +293,10 @@
 				GCC_PREFIX_HEADER = "LeapQC/LeapQC-Prefix.pch";
 				INFOPLIST_FILE = "LeapQC/LeapQC-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Leap_SDK/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = plugin;
 			};
